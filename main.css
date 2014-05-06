@@ -1,0 +1,49 @@
+html
+{
+	background-color: #BCF;
+}
+
+body
+{
+	max-width: 800px;
+/*
+	background-color: #CDF;
+*/
+	margin-left: auto;
+	margin-right: auto;
+}
+
+header
+{
+	padding-top: 5px;	
+	border-bottom: 2px solid blue;
+}
+
+header ul
+{
+	text-align: center;
+	font-size: 1.2em;
+	width:auto;
+}
+
+header li
+{
+	display:inline-block;
+	text-decoration:none;
+	margin: 0 4%;
+}
+
+
+footer
+{
+	margin-top : 20px;
+	padding-top: 5px;
+	bottom:0px;
+	font-size:0.8em;
+	border-top: 2px solid blue;
+}
+
+body *
+{
+	padding-left: 15px;
+}
