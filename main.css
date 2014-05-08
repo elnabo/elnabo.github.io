@@ -1,27 +1,36 @@
 html
 {
-	background-color: #BCF;
+	background-color: #333;
+/*
+	color : #D3D3D3;
+*/
+	color : #FC0;
 }
 
 body
 {
 	max-width: 800px;
 /*
-	background-color: #CDF;
+	background-color: #DDD;
 */
+	background-color: #444;
 	margin-left: auto;
 	margin-right: auto;
+	border-radius: 15px;
 }
 
 header
 {
 	padding-top: 5px;	
-	border-bottom: 2px solid blue;
+	padding-left: 15px;
+	border-bottom: 2px solid #FC0;
 }
 
 header ul
 {
+/*
 	text-align: center;
+*/
 	font-size: 1.2em;
 	width:auto;
 }
@@ -33,17 +42,74 @@ header li
 	margin: 0 4%;
 }
 
+header li a
+{
+	color:#FC0;
+	text-decoration:none;
+	padding: 5px;
+	border-radius : 5px;
+}
+header li a:hover
+{
+	color:#FB5;
+	text-decoration:none;
+	background-color:#333;
+	box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5) inset, 0px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+header li span
+{
+	color:#444;
+	background-color:#FC0;
+	box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5) inset, 0px 1px 5px rgba(0, 0, 0, 0.5);
+	padding: 5px;
+	border-radius : 5px;
+	
+}
+
 
 footer
 {
 	margin-top : 20px;
 	padding-top: 5px;
+	padding-left: 15px;
 	bottom:0px;
 	font-size:0.8em;
-	border-top: 2px solid blue;
+	border-top: 2px solid #FC0;
+	clear:both;
 }
 
-body *
+article
 {
 	padding-left: 15px;
+}
+
+a
+{
+	color:#FC0;
+}
+
+.description
+{
+	width:96%;
+	margin-left:3%;
+}
+
+.name
+{
+	font-variant:small-caps;
+}
+.emph
+{
+	font-style:italic;
+}
+
+#self
+{
+float:right;
+padding-bottom:20px;
+margin-right: 5px;
+/*
+transform : rotate(15deg);
+*/
 }
