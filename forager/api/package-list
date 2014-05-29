@@ -1,0 +1,11 @@
+forager
+forager.agents
+forager.agents.message
+forager.brain
+forager.model
+forager.model.object
+forager.model.object.obstacle
+forager.model.object.ressource
+forager.quadtree
+forager.ui
+forager.util
