@@ -1,0 +1,16 @@
+
+{
+	"name": "Wordle (FR)",
+	"short_name": "Wordle",
+	"start_url": "https://elnabo.github.io/games/wordle",
+	"display": "standalone",
+	"background_color": "#fff",
+	"description": "Wordle en français",
+	"icons": [
+		{
+			"src": "image.png",
+			"sizes": "128x128",
+			"type": "image/png"
+		}
+	]
+}

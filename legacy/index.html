@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='fr'>
+	<head>
+		<meta charset='utf-8' />
+		<title>Library manager</title>
+		<link rel='stylesheet' href='main.css' type='text/css'/>
+		<script type='module'>
+			// WICG Shape Detection API
+			// - https://wicg.github.io/shape-detection-api/
+			try {
+				const start = document.getElementById('start');
+				const video = document.getElementById('video');
+				const result = document.getElementById('result');
+
+				// const detector = new BarcodeDetector();
+				const detector = new BarcodeDetector({formats: ['ean_13']});
+
+				const capture = async () => {
+					try {
+						const barcodes = await detector.detect(video);
+						const log = barcodes.map(({format, rawValue}) => `- ${format}: ${rawValue}`).join('\n');
+						if (log) {
+							result.textContent = result.textContent + '\n' + log;
+						}
+						requestAnimationFrame(capture);
+					}
+					catch (err) {
+						console.error(err);
+					}
+				};
+
+				video.addEventListener('play', () => capture());
+
+				start.addEventListener('click', () => {
+					start.disabled = true;
+					(async () => {
+						const media = await navigator.mediaDevices.getUserMedia({
+							audio: false,
+							video: {
+								//NOTE: crash on android  chrome when specified the size
+								//width: {ideal: 800}, height: {ideal: 800},
+								facingMode: 'environment'
+							}
+						});
+						video.srcObject = media;
+						video.autoplay = true;
+					})().catch(console.error);
+				}, {once: true});
+			}
+			catch (err) {
+				document.getElementById('result').textContent = err;
+			}
+		</script>
+	</head>
+
+
+	<body>
+		BarcodeDetector demo: <button id='start'>start</button>
+		<div><video id='video' autoplay></div>
+		<pre id='result'></pre>
+	</body>
+</html>
