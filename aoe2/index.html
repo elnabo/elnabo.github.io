@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset='utf-8'>
+		<title>AoE2 Civ picker</title>
+	</head>
+	<body>
+		<div>
+			You have randomned
+			<span id='choice' style='font-weight: 800;'></span>
+			(<span id='count'></span> other remaining)
+		</div>
+		<button id='pick'>Next civ</button>
+		<button id='reset'>Reset</button>
+
+		<div>
+			Remember
+			<input id='remember' type='checkbox'></input>
+		</div>
+	</body>
+	<script>
+		const civs = [
+			'Armenians',
+			'Aztecs',
+			'Bengalis',
+			'Berbers',
+			'Bohemians',
+			'Britons',
+			'Bulgarians',
+			'Burgundians',
+			'Burmese',
+			'Byzantines',
+			'Celts',
+			'Chinese',
+			'Cumans',
+			'Dravidians',
+			'Ethiopians',
+			'Franks',
+			'Georgians',
+			'Goths',
+			'Gurjaras',
+			'Hindustanis',
+			'Huns',
+			'Incas',
+			'Italians',
+			'Japanese',
+			'Khmer',
+			'Koreans',
+			'Lithuanians',
+			'Magyars',
+			'Malay',
+			'Malians',
+			'Mayans',
+			'Mongols',
+			'Persians',
+			'Poles',
+			'Portuguese',
+			'Romans',
+			'Saracens',
+			'Sicilians',
+			'Slavs',
+			'Spanish',
+			'Tatars',
+			'Teutons',
+			'Turks',
+			'Vietnamese',
+			'Vikings',
+		];
+
+
+		const btn = document.getElementById('pick');
+		const choice = document.getElementById('choice');
+		const count = document.getElementById('count');
+		const remember = document.getElementById('remember')
+
+		function resetPicker(fromList) {
+			let list;
+			if (fromList) {
+				list = fromList;
+			}
+			else {
+				list = civs.slice().sort(() => Math.random() - 0.5)
+			}
+
+			btn.disabled = list.length === 1;
+
+			let currentId;
+			function display() {
+				choice.innerText = list[0];
+				count.innerText = String(list.length) - 1;
+			}
+
+			btn.onclick = () => {
+				list.shift();
+				display();
+
+				if (list.length === 1) {
+					btn.disabled = true;
+				}
+			}
+
+			display();
+
+			window.onbeforeunload = () => {
+				if (remember.checked) {
+					localStorage.setItem('civs', list.join(','));
+				}
+			}
+		}
+
+		document.getElementById('reset').onclick = () => resetPicker();
+
+		remember.onchange = () => {
+			if (!remember.checked) {
+				localStorage.clear('civs');
+			}
+		}
+
+		const previous = localStorage.getItem('civs');
+		if (previous !== null) {
+			remember.checked = true;
+			if (previous) {
+				resetPicker(previous.split(','));
+			}
+			else {
+				resetPicker();
+			}
+		}
+		else {
+			resetPicker();
+		}
+	</script>
+</html>
