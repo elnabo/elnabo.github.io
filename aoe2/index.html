@@ -103,7 +103,8 @@
 				list = fromList;
 			}
 			else {
-				list = civs.slice().sort(() => Math.random() - 0.5)
+				let randPlusCiv = civs.map((a) => ({r: Math.random(), c: a}));
+				list = randPlusCiv.sort((a,b) => a.r - b.r).map((a) => a.c);
 			}
 
 			btn.disabled = list.length === 1;
