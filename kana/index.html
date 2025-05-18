@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='fr'>
+
+	<head>
+		<meta charset='utf-8'>
+		<title>Au Kana Joyeux</title>
+
+		<link rel='shortcut icon' href='favicon.ico'>
+		<link rel='stylesheet' href='main.css' media='screen'>
+		<link rel="manifest" href="manifest.json" />
+	</head>
+
+	<body>
+		<main>
+			<div id='options'>
+				<select id='kana_picker'>
+					<option value='hiragana'>Hiragana</option>
+					<option value='katakana'>Katakana</option>
+					<option value='random'>All</option>
+				</select>
+				<select id='subset_picker'>
+					<option value='base'>Simple</option>
+					<option value='combined'>No diacritics</option>
+					<option value='full'>All</option>
+				</select>
+				<select id='format_picker'>
+					<option value='choice'>Choice</option>
+					<option value='free'>Free</option>
+				</select>
+			</div>
+
+			<div id='big_kana_box'>
+				<p></p>
+			</div>
+
+			<div id='answer_box_choice'>
+				<div class='button'></div>
+				<div class='button'></div>
+				<div class='button'></div>
+				<div class='button'></div>
+			</div>
+
+			<div id='answer_box_free'>
+				<input autofocus maxlength=5 type='text'></input>
+				<button>Check</button>
+			</div>
+
+			<button id='next_button' class='button hidden'>
+				Next
+			</button>
+		</main>
+		<script src='./main.js'></script>
+	</body>
+</html>

@@ -1,0 +1,97 @@
+body {
+	background-color: #6bb977;
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+	user-select: none;
+}
+
+main {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	justify-content: space-evenly;
+	text-align: center;
+	width: 80vw;
+}
+
+#big_kana_box {
+	align-items: center;
+	background-color: #7eca7e;
+	border-radius: 15px;
+	display: flex;
+	font-size: 15rem;
+	height: 30rem;
+	justify-content: center;
+	text-align: center;
+}
+
+#answer_box_choice {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.button {
+	background-color: lightgrey;
+	border-radius: 15px;
+	font-size: 5rem;
+	margin: 1.5rem;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+*[data-validity="valid"] {
+	background-color: #0eb900;
+}
+
+*[data-validity="invalid"] {
+	background-color: #d7001e;
+}
+
+select {
+	max-width: 33%;
+}
+
+#options {
+	display: flex;
+	justify-content: space-evenly;
+	margin: 1em;
+}
+
+#answer_box_free {
+	height: 19.25rem;
+}
+
+#answer_box_free > * {
+	font-size: 5rem;
+	max-width: 60%;
+}
+
+
+@media screen and (width >= 1300px) {
+	main {
+		width: 80vw;
+	}
+	main > * {
+		width: 50%;
+	}
+
+	select {
+		font-size: 1.5rem;
+	}
+}
+@media screen and (width < 1300px) {
+	main {
+		width: 95vw;
+	}
+	main > * {
+		width: 90%;
+	}
+
+	select {
+		font-size: 2.5rem;
+	}
+}
