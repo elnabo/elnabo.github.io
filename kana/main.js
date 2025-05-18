@@ -331,7 +331,7 @@ function newQuestion(kana, subset, format) {
 		button.disabled = false;
 
 		const callback = () => {
-			if (input.value?.trim() === question.romaji) {
+			if (input.value?.trim().toLowerCase() === question.romaji) {
 				input.dataset.validity = 'valid';
 			}
 			else {
@@ -374,15 +374,6 @@ function init() {
 	kanaPicker.onchange = callback;
 	subsetPicker.onchange = callback;
 	formatPicker.onchange = callback;
-	// kanaPicker.onchange = (evt) => {
-	// 	nextButton.onclick = () => newQuestion(evt.target.value, subsetPicker.value, formatPicker.value);
-	// 	nextButton.click();
-	// }
-	// subsetPicker.onchange = (evt) => {
-	// 	nextButton.onclick = () => newQuestion(kanaPicker.value, evt.target.value, formatPicker.value);
-	// 	nextButton.click();
-	// }
-
 
 	nextButton.onclick = () => newQuestion(kanaPicker.value, subsetPicker.value, formatPicker.value);
 	nextButton.click();
