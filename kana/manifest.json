@@ -2,7 +2,7 @@
 {
 	"name": "Au Kana joyeux",
 	"short_name": "Kana",
-	"start_url": "https://elnabo.github.io/games/kana/index.html",
+	"start_url": "https://elnabo.github.io/kana/index.html",
 	"display": "standalone",
 	"background_color": "#fff",
 	"description": "Hiragana + Katakana learning tool",
